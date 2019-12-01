@@ -1,0 +1,16 @@
+com\tl\ssm\service\ProductService.class
+com\tl\ssm\service\impl\SysLogServiceImpl.class
+com\tl\ssm\service\RoleService.class
+com\tl\ssm\service\MemberService.class
+com\tl\ssm\service\impl\ProductServiceImpl.class
+com\tl\ssm\service\OrdersService.class
+com\tl\ssm\service\impl\UserServiceImpl.class
+com\tl\ssm\service\impl\PermissionServiceImpl.class
+com\tl\ssm\service\PermissionService.class
+com\tl\ssm\service\SysLogService.class
+com\tl\ssm\service\impl\MemberServiceImpl.class
+com\tl\ssm\service\impl\TravellerServiceImpl.class
+com\tl\ssm\service\TravellerService.class
+com\tl\ssm\service\impl\OrdersServiceImpl.class
+com\tl\ssm\service\impl\RoleServiceImpl.class
+com\tl\ssm\service\UserService.class

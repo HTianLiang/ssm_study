@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+        <!--日期格式转换-->
+       <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+            <property name="webBindingInitializer">
+                <bean class="com.tl.ssm.utils.DateConverter"/>
+            </property>
+       </bean>
+
+       <!--开启对springMVC注解支持-->
+       <mvc:annotation-driven/>
+
+       <!--扫描controller注解-->
+       <context:component-scan base-package="com.tl.ssm.controller"/>
+
+       <!--配置视图解析器-->
+       <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+           <!--文件的前缀，jsp文件所在的目录-->
+           <property name="prefix" value="/pages/"/>
+           <!--文件的后缀名-->
+           <property name="suffix" value=".jsp"/>
+       </bean>
+
+       <!--对静态资源放行-->
+       <mvc:resources location="/css/" mapping="/css/**" />
+       <mvc:resources location="/img/" mapping="/img/**" />
+       <mvc:resources location="/plugins/" mapping="/plugins/**" />
+
+       <!--
+        开启AOP的注解支持，AOP底层使用代理技术
+        JDK动态代理，要求必须有接口
+        cglib代理，生成子类对象，proxy-target-class="true" 默认使用cglib的方式
+       -->
+<!--       <aop:aspectj-autoproxy proxy-target-class="true"/>-->
+       <aop:aspectj-autoproxy expose-proxy="true"/>
+
+</beans>
